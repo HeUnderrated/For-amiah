@@ -1,0 +1,165 @@
+:root {
+    --bg-pink: #f6a5c0;
+    --bg-pink-light: #f9c2d4;
+    --accent-orange: #f4a261;
+    --cream: #f9c2d4;
+    --text-dark: #f4a261;
+    --shadow: 0 15px 35px rgba(0,0,0,0.1);
+}
+
+body {
+    background: linear-gradient(180deg, var(--bg-pink) 0%, var(--bg-pink-light) 100%);
+    color: var(--text-dark);
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+#enter-overlay {
+    position: fixed;
+    top:0; left:0; width:100%; height:100%;
+    background: var(--bg-pink);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 5000;
+}
+
+.navbar {
+    position: fixed;
+    top: 0; width: 100%;
+    background: #f9c2d4;
+    backdrop-filter: blur(10px);
+    z-index: 2000;
+}
+
+.tabs {
+    display: flex;
+    justify-content: center;
+    padding: 15px 0;
+    overflow-x: auto;
+}
+
+.tab-link {
+    background: none; border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: var(--text-dark);
+    transition: 0.3s;
+    position: relative;
+}
+
+.tab-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 20%; width: 60%; height: 3px;
+    background: var(--accent-orange);
+}
+
+.video-hero {
+    position: relative;
+    height: 80vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    border-radius: 30px;
+}
+
+.bg-video { position: absolute; width: 100%; height: 100%; object-fit: cover; }
+.video-overlay { position: absolute; top:0; left:0; width:100%; height:100%; background: rgba(246, 165, 192, 0.4); }
+.hero-text { z-index: 10; text-align: center; color: #f9c2d4; }
+
+.script-font { font-family: 'Dancing Script', cursive; }
+
+.special-btn {
+    padding: 15px 35px;
+    background: var(--accent-orange);
+    color: #f9c2d4;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 1.1rem;
+}
+
+.bad-day-btn {
+    background: transparent;
+    color: #f9c2d4;
+    border: 1px solid #f9c2d4;
+    padding: 8px 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
+
+.letter-btn {
+    margin-top: 15px;
+    background: none;
+    border: 1px solid var(--accent-orange);
+    color: var(--accent-orange);
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.2rem;
+}
+
+.content-wrapper { max-width: 1100px; margin: 0 auto; padding: 120px 20px 60px 20px; }
+.tab-content { display: none; opacity: 0; transform: translateY(20px); transition: 0.6s ease; }
+.tab-content.active { display: block; opacity: 1; transform: translateY(0); }
+
+.split-row { display: flex; align-items: center; gap: 60px; margin-bottom: 80px; }
+.split-row.reverse { flex-direction: row-reverse; }
+.split-text, .split-image { flex: 1; }
+
+.section-title { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: #f4a261; margin-bottom: 10px; }
+
+.cream-box {
+    background: var(--cream);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+}
+
+.polaroid-frame {
+    background: #f4a261;
+    padding: 15px 15px 40px 15px;
+    box-shadow: var(--shadow);
+    transform: rotate(2deg);
+    max-width: 320px;
+    margin: 0 auto;
+    color: #f9c2d4;
+}
+
+.polaroid-frame img { width: 100%; }
+.polaroid-frame .caption { font-family: 'Dancing Script', cursive; text-align: center; font-size: 1.3rem; margin-top: 10px; }
+.rotate-left { transform: rotate(-3deg); }
+
+.modal {
+    display: none;
+    position: fixed;
+    top:0; left:0; width:100%; height:100%;
+    background: rgba(0,0,0,0.7);
+    backdrop-filter: blur(10px);
+    z-index: 4000;
+    align-items: center; justify-content: center;
+}
+
+.modal-content {
+    background: var(--cream);
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    max-width: 450px;
+}
+
+.close-btn { margin-top: 20px; padding: 10px 25px; border: 1px solid var(--accent-orange); background: transparent; cursor: pointer; border-radius: 10px; }
+
+.music-note { position: fixed; bottom: 20px; right: 20px; background: #f9c2d4;; padding: 10px 20px; border-radius: 50px; display: none; }
+
+@media (max-width: 850px) { .split-row, .split-row.reverse { flex-direction: column; text-align: center; } }
